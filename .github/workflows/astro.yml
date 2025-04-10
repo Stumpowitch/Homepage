@@ -57,11 +57,11 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
 
-      - name: Install pnpm (if needed)
+      - name: Enable pnpm (if needed)
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         run: |
-          curl -fsSL https://get.pnpm.io/install.sh | bash
-          export PATH="$HOME/.local/share/pnpm:$PATH"
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Setup Pages
         id: pages
