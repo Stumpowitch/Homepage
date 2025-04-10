@@ -33,7 +33,7 @@ jobs:
 
       - name: Install pnpm
         run: |
-          wget -qO- https://get.pnpm.io/install.sh | sh -
+          wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
           echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
           echo "$HOME/.local/share/pnpm/global/node_modules/.bin" >> $GITHUB_PATH
 
