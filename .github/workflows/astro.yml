@@ -62,6 +62,7 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
+          echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
 
       - name: Setup Pages
         id: pages
